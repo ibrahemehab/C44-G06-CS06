@@ -50,15 +50,38 @@ namespace assignment6
         //}
         #endregion
         #region sumofdigits
-        public static int sumofdidgits (int number)
+        //public static int sumofdidgits (int number)
+        //{
+        //    int sumofdigits = 0;
+        //    while (number > 0)
+        //    {
+        //        sumofdigits += number % 10;
+        //        number /= 10;
+        //    }
+        //    return sumofdigits;
+        //}
+        #endregion
+        #region isprime?
+        public static bool isprimenum ( int number)
         {
-            int sumofdigits = 0;
-            while (number > 0)
+            bool isprime = true;
+            if (number <= 1)
             {
-                sumofdigits += number % 10;
-                number /= 10;
+                isprime = false;
+                
             }
-            return sumofdigits;
+            else
+            {
+                for (int i = 2; i < number; i++)
+                    if (number % i == 0)
+                    {
+                        isprime = false;
+                        break;
+                    }
+                    else
+                        continue;
+            }
+            return isprime;
         }
         #endregion
         static void Main(string[] args)
@@ -118,12 +141,19 @@ namespace assignment6
             #region q4
             //Write a program in C# Sharp to create a function to calculate the sum of the
             //individual digits of a given number. 
-            Console.WriteLine("enter the number :");
+            //Console.WriteLine("enter the number :");
+            //int number = int.Parse(Console.ReadLine());
+            //int result = sumofdidgits(number);
+            //Console.WriteLine(result);
+
+
+            #endregion
+            #region q5
+            //
+            Console.WriteLine(" enter the number :");
             int number = int.Parse(Console.ReadLine());
-            int result = sumofdidgits(number);
-            Console.WriteLine(result);
-
-
+            bool isprim = isprimenum(number);
+            Console.WriteLine(isprim);
             #endregion
         }
     }
