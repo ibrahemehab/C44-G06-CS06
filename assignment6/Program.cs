@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Metadata;
 using System.Transactions;
 
 namespace assignment6
@@ -85,19 +86,30 @@ namespace assignment6
         //}
         #endregion
         #region maxmin_in_arr
-        public static void MaxMin( ref int[] numbers , ref int max , ref int min)
+        //public static void MaxMin( ref int[] numbers , ref int max , ref int min)
+        //{
+        //    max = numbers[0];
+        //    min = numbers[0];
+        //    for ( int i = 1; i < numbers.Length; i++)
+        //    {
+        //        if (numbers[i] > max)
+        //            max = numbers[i];
+        //        if (numbers[i] < min)
+        //            min = numbers[i];
+
+        //    }
+
+        //}
+        #endregion
+        #region factorial 
+        public static int factorial (int number)
         {
-            max = numbers[0];
-            min = numbers[0];
-            for ( int i = 1; i < numbers.Length; i++)
+            int factorial = 1; 
+            for (int i =number ; i >= 1; i--)
             {
-                if (numbers[i] > max)
-                    max = numbers[i];
-                if (numbers[i] < min)
-                    min = numbers[i];
-
+                factorial *= i;
             }
-
+            return factorial;
         }
         #endregion
         static void Main(string[] args)
@@ -175,12 +187,21 @@ namespace assignment6
             #region q6
             //Create a function named MinMaxArray, to return the minimum and
             //maximum values stored in an array, using reference parameters
-            int[] numbers = [555, 11, 55, 9];
-            int max = 0;
-            int min = 0;
-            MaxMin(ref numbers, ref max, ref min);
-            Console.WriteLine($"max is {max} min is {min}");
+            //int[] numbers = [555, 11, 55, 9];
+            //int max = 0;
+            //int min = 0;
+            //MaxMin(ref numbers, ref max, ref min);
+            //Console.WriteLine($"max is {max} min is {min}");
             #endregion
+            #region q7
+            //Create function to calculate the factorial of the number specified as
+            //parameter
+            Console.WriteLine("enter the number : ");
+            int number = int.Parse(Console.ReadLine());
+            int result = factorial(number);
+            Console.WriteLine(result);
+            #endregion
+
         }
     }
 }
