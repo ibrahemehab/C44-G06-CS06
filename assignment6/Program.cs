@@ -62,26 +62,42 @@ namespace assignment6
         //}
         #endregion
         #region isprime?
-        public static bool isprimenum ( int number)
+        //public static bool isprimenum ( int number)
+        //{
+        //    bool isprime = true;
+        //    if (number <= 1)
+        //    {
+        //        isprime = false;
+
+        //    }
+        //    else
+        //    {
+        //        for (int i = 2; i < number; i++)
+        //            if (number % i == 0)
+        //            {
+        //                isprime = false;
+        //                break;
+        //            }
+        //            else
+        //                continue;
+        //    }
+        //    return isprime;
+        //}
+        #endregion
+        #region maxmin_in_arr
+        public static void MaxMin( ref int[] numbers , ref int max , ref int min)
         {
-            bool isprime = true;
-            if (number <= 1)
+            max = numbers[0];
+            min = numbers[0];
+            for ( int i = 1; i < numbers.Length; i++)
             {
-                isprime = false;
-                
+                if (numbers[i] > max)
+                    max = numbers[i];
+                if (numbers[i] < min)
+                    min = numbers[i];
+
             }
-            else
-            {
-                for (int i = 2; i < number; i++)
-                    if (number % i == 0)
-                    {
-                        isprime = false;
-                        break;
-                    }
-                    else
-                        continue;
-            }
-            return isprime;
+
         }
         #endregion
         static void Main(string[] args)
@@ -149,11 +165,21 @@ namespace assignment6
 
             #endregion
             #region q5
-            //
-            Console.WriteLine(" enter the number :");
-            int number = int.Parse(Console.ReadLine());
-            bool isprim = isprimenum(number);
-            Console.WriteLine(isprim);
+            //Create a function named "IsPrime", which receives an integer number
+            //and retuns true if it is prime, or false if it is not:
+            //Console.WriteLine(" enter the number :");
+            //int number = int.Parse(Console.ReadLine());
+            //bool isprim = isprimenum(number);
+            //Console.WriteLine(isprim);
+            #endregion
+            #region q6
+            //Create a function named MinMaxArray, to return the minimum and
+            //maximum values stored in an array, using reference parameters
+            int[] numbers = [555, 11, 55, 9];
+            int max = 0;
+            int min = 0;
+            MaxMin(ref numbers, ref max, ref min);
+            Console.WriteLine($"max is {max} min is {min}");
             #endregion
         }
     }
