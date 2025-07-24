@@ -1,6 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System.Buffers.Text;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Metrics;
 using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Transactions;
 
 namespace assignment6
@@ -102,14 +106,31 @@ namespace assignment6
         //}
         #endregion
         #region factorial 
-        public static int factorial (int number)
+        //public static int factorial (int number)
+        //{
+        //    int factorial = 1; 
+        //    for (int i =number ; i >= 1; i--)
+        //    {
+        //        factorial *= i;
+        //    }
+        //    return factorial;
+        //}
+        #endregion
+        #region changechar 
+        public static string changechar ( string name , int position , char newchar )
         {
-            int factorial = 1; 
-            for (int i =number ; i >= 1; i--)
+            string replaced = "";
+            if (position >= name.Length)
             {
-                factorial *= i;
+                Console.WriteLine("index out side the range ");
+                return name;
             }
-            return factorial;
+            else
+            {
+                replaced = name.Substring(0, position) + newchar + name.Substring(position + 1 , name.Length-position-1);
+            }
+            return replaced;
+            
         }
         #endregion
         static void Main(string[] args)
@@ -196,10 +217,22 @@ namespace assignment6
             #region q7
             //Create function to calculate the factorial of the number specified as
             //parameter
-            Console.WriteLine("enter the number : ");
-            int number = int.Parse(Console.ReadLine());
-            int result = factorial(number);
-            Console.WriteLine(result);
+            //Console.WriteLine("enter the number : ");
+            //int number = int.Parse(Console.ReadLine());
+            //int result = factorial(number);
+            //Console.WriteLine(result);
+            #endregion
+            #region q8
+            //Create a function named "ChangeChar" to modify a letter in a certain
+            //position(0 based) of a string, replacing it with a different letter
+            Console.WriteLine("enter the string :");
+            string newname = Console.ReadLine();
+            Console.WriteLine("enter the position :");
+            int position  = int.Parse(Console.ReadLine());
+            Console.WriteLine("enter the newchar :");
+            char newchar = char.Parse(Console.ReadLine());
+            string replaced = changechar(newname,position,newchar);
+            Console.WriteLine(replaced);
             #endregion
 
         }
