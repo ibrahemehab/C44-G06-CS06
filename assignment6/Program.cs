@@ -43,10 +43,22 @@ namespace assignment6
         //}
         #endregion
         #region summ,substract
-        public static void  ss ( int x , int y , int z , int h , out int sum , out int substract)
+        //public static void ss(int[] numbers, out int sum, out int substract)
+        //{
+        //    sum = numbers[0] + numbers[1];
+        //    substract = numbers[2] - numbers[3];
+        //}
+        #endregion
+        #region sumofdigits
+        public static int sumofdidgits (int number)
         {
-            sum = x + y;
-            substract = z - h;
+            int sumofdigits = 0;
+            while (number > 0)
+            {
+                sumofdigits += number % 10;
+                number /= 10;
+            }
+            return sumofdigits;
         }
         #endregion
         static void Main(string[] args)
@@ -89,16 +101,27 @@ namespace assignment6
             #region q3
             //Write a c# Function that accept 4 parameters from user and
             //return result of summation and subtracting of two numbers
-            Console.WriteLine("enter the four numbers : ");
-            int a = int.Parse (Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            int c = int.Parse(Console.ReadLine());
-            int d = int.Parse(Console.ReadLine());
-            int sum;
-            int substract;
-            ss(a, b, c, d, out sum, out substract);
-            Console.WriteLine(sum + "  " + substract);
+            //int[] array = new int[4];
+            //for ( int i =0; i < array.Length; i++)
+            //{
+            //    Console.WriteLine($"enter number {i + 1} :");
+            //    array[i] = int.Parse(Console.ReadLine());
+            //}
+            //int sum;
+            //int substract;
+            //ss(array, out sum, out substract);
+            //Console.WriteLine(sum + "  " + substract);
 
+
+
+            #endregion
+            #region q4
+            //Write a program in C# Sharp to create a function to calculate the sum of the
+            //individual digits of a given number. 
+            Console.WriteLine("enter the number :");
+            int number = int.Parse(Console.ReadLine());
+            int result = sumofdidgits(number);
+            Console.WriteLine(result);
 
 
             #endregion
